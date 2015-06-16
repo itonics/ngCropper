@@ -22,7 +22,10 @@ angular.module('ngCropper', ['ng'])
 
         preprocess(scope.options, element[0])
           .then(function(options) {
-            element.cropper(options);
+            // wait for image to be loaded / since FF doesnt render the image asynchronously
+            element[0].onload = function(){
+                element.cropper(options);
+            }
           })
       });
 
