@@ -14,7 +14,7 @@
     "angular": "~1.4.1"
   },
   "devDependencies": {
-    "cropper": "~2.3.4",
+    "cropper": "itonics/cropper#v2.3.4-itonics",
     "jquery": "~2.1.1",
     "mocha": "~1.21.4",
     "chai": "~1.9.2"

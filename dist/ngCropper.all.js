@@ -1,11 +1,11 @@
 /*!
- * Cropper v2.3.4
+ * Cropper v2.3.4-itonics
  * https://github.com/fengyuanchen/cropper
  *
- * Copyright (c) 2014-2016 Fengyuan Chen and contributors
+ * Copyright (c) 2014-2017 Fengyuan Chen and contributors
  * Released under the MIT license
  *
- * Date: 2016-09-03T05:50:45.412Z
+ * Date: 2017-08-17T12:37:54.357Z
  */
 
 (function (factory) {
@@ -1241,6 +1241,26 @@
       if (this.isCompleted) {
         this.trigger(EVENT_CROP, this.getData());
       }
+    },
+
+    resetPreviewDimensions: function (previews) {
+      this.$preview.each(function () {
+        var $this = $(this);
+        var preview = previews.find(function (preview) {
+          return preview.id === $this.attr('id');
+        });
+
+        // reset
+        if (preview) {
+          $this.data(DATA_PREVIEW, {
+            width: preview.width,
+            height: preview.height,
+            html: $this.html()
+          });
+        }
+      });
+
+      this.preview();
     },
 
     initPreview: function () {
